@@ -1,0 +1,19 @@
+[
+  {
+    "name": "dog",
+    "type": "set",
+    "ordered": false,
+    "elements": 5,
+    "properties": [],
+    "operations": []
+  },
+  {
+    "name": "cat",
+    "type": "vector space",
+    "ordered": false,
+    "elements": 4,
+    "properties": [],
+    "operations": []
+  }
+
+]
