@@ -9,6 +9,7 @@
 
 <script>
 export default {
+  props: ['structure'],
 
 };
 </script>

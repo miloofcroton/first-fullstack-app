@@ -1,6 +1,5 @@
 <template>
   <section>
-
     <form @submit.prevent="handleSubmit">
       <div class="form">
         <p>Name:</p>
@@ -49,7 +48,12 @@
     </form>
 
     <div class="selections">
-      <p>Properties: {{ checkedNames }}</p>
+      <h4>You've selected:</h4>
+      <p>Name: {{ name }}</p>
+      <p>Type: {{ type }}</p>
+      <p>Ordered: {{ ordered }}</p>
+      <p>Number of elements: {{ elements }}</p>
+      <p>Properties: {{ properties }}</p>
 
     </div>
   </section>
