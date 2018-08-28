@@ -1,19 +1,6 @@
 First Fullstack App
 ===
 
-## Lab
-
-Create your first app and server (fullstack minus database)!
-
-Pick an "entity" (resource) for your app. Ideally, something of interest to you.
-**However**, your resource should:
-
-1. Only have one level of properties (no nested objects or arrays)
-1. Have at least one property of type:
-    * string/text
-    * number
-    * boolean (true/false)
-
 ## App
 
 The app needs to display a list of resources and have an add form to add a new resource. Make sure to:
