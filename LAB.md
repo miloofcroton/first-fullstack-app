@@ -1,10 +1,6 @@
 First Fullstack App
 ===
 
-## Code Kata
-
-Complete [today's Kata](https://www.codewars.com/kata/disemvowel-trolls)
-
 ## Lab
 
 Create your first app and server (fullstack minus database)!
@@ -17,15 +13,6 @@ Pick an "entity" (resource) for your app. Ideally, something of interest to you.
     * string/text
     * number
     * boolean (true/false)
-
-## Project
-
-Your github project needs to contain both an `app` folder and a `server` folder:
-
-* `app` contains your vue front end project
-* `server` contains your data api express server
-
-These will need separate setup and configuration: `package.json`, `.gitignore`, `.eslintrc`, `README.md`
 
 ## App
 
@@ -44,11 +31,3 @@ The server needs to:
 * Handle a `GET` to `/api/<your-resource-plural>` and return list of data
 * Handle a `POST` to `/api/<your-resource-plural>` and update file then return the posted object
 
-## Rubric
-
-* app
-    * get and list display **2pts**
-    * add form, post, and UI update **3pts**
-* server
-    * setup **2pts**
-    * `GET` and `POST` routes **3pts**
