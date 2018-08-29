@@ -16,6 +16,8 @@
             v-for="(structure, index) in structures"
             :key="index"
             :structure="structure"
+            :selected="selected"
+            :onSelect="handleSelect"
           />
         </ul>
       </div>
@@ -35,7 +37,8 @@ export default {
   },
   data() {
     return {
-      structures: null
+      structures: null,
+      selected: null
     };
   },
   created() {
@@ -45,6 +48,9 @@ export default {
       });
   },
   methods: {
+    handleSelect(structure) {
+      this.selected = structure;
+    },
     handleAdd(structure) {
       return api.addStructure(structure)
         .then(saved => {
