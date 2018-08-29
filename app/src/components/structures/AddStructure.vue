@@ -41,6 +41,11 @@
           <br>
         </div>
 
+        <p>Color:</p>
+        <div id='color-form' class="form-input">
+          <input v-model="structure.color" type="color" placeholder="#0c8d53" required>
+        </div>
+
       </div>
 
       <button type="submit">Add</button>
@@ -49,11 +54,23 @@
 
     <div class="selections">
       <h4>You've selected:</h4>
-      <p>Name: {{ structure.name }}</p>
-      <p>Type: {{ structure.type }}</p>
-      <p>Ordered: {{ structure.ordered }}</p>
-      <p>Number of elements: {{ structure.elements }}</p>
-      <p>Properties: {{ structure.properties }}</p>
+      <div>
+        <p class="col-1">Name:</p>
+        <p class="col-2">{{ structure.name }}</p>
+        <p class="col-1">Color:</p>
+        <p class="col-2" 
+          style="min-width: 100px; min-height: 50px; border: 1px solid black;" 
+          :style="{ backgroundColor: structure.color }">
+        </p>
+        <p class="col-1">Type:</p>
+        <p class="col-2">{{ structure.type }}</p>
+        <p class="col-1">Ordered:</p>
+        <p class="col-2">{{ structure.ordered }}</p>
+        <p class="col-1">Number of elements:</p>
+        <p class="col-2">{{ structure.elements }}</p>
+        <p class="col-1">Properties:</p>
+        <p class="col-2">{{ structure.properties }}</p>
+      </div>
 
     </div>
   </section>
@@ -67,7 +84,8 @@ const initStructure = () => {
     type: '',
     ordered: '',
     elements: '',
-    properties: '',
+    properties: [],
+    color: '#0c8d53',
   };
 };
 
@@ -140,6 +158,24 @@ button {
 
 button:hover {
   background: grey;
+}
+
+.selections div {
+  margin: 5px auto;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-gap: 3px;
+}
+
+.selections div p {
+  font-size: 18px;
+}
+
+.col-1 {
+  justify-self: end;
+}
+.col-2 {
+  justify-self: start;
 }
 
 </style>

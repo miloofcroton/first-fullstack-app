@@ -79,6 +79,7 @@ ul.list {
 
 li {
   border: 1px solid black;
+  
 }
 
 

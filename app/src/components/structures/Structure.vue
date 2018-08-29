@@ -1,5 +1,5 @@
 <template>
-  <li>
+  <li :style="{ backgroundColor: structure.color }">
     <h3>{{ structure.name }}</h3>
     <p>Type: {{ structure.type }}</p>
     <p>Ordered: {{ structure.ordered }}</p>
