@@ -6,6 +6,12 @@ export default {
     })
       .then(response => response.json());
   },
+  getStructure(id) {
+    return fetch(`http://localhost:3000/api/structures/${id}`, {
+      headers: { 'Content-Type': 'application/json' }
+    })
+      .then(response => response.json());
+  },
   addStructure(structure) {
     return fetch('http://localhost:3000/api/structures', {
       method: 'POST',
