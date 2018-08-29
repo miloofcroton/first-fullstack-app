@@ -124,10 +124,12 @@ div.form {
 }
 
 div.form p {
+  align-self: center;
   justify-self: end;
   margin: 10px;
 }
 div.form .form-input {
+  align-self: center;
   justify-self: start;
 }
 
@@ -173,9 +175,12 @@ button:hover {
 
 .col-1 {
   justify-self: end;
+  align-self: center;
+
 }
 .col-2 {
   justify-self: start;
+  align-self: center;
 }
 
 </style>
