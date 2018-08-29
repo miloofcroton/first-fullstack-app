@@ -34,6 +34,25 @@ app.get('/api/structures', (req, res) => {
     .catch(err => console.log(err));
 });
 
+app.get('/api/structures/:id', (req, res) => {
+  client.query(`
+    SELECT
+      id,
+      name,
+      type,
+      ordered,
+      elements
+    FROM structures
+    WHERE id = $1;
+  `,
+  [req.params.id]
+  )
+    .then(result => {
+      res.send(result.rows[0]);
+    })
+    .catch(err => console.log(err));
+});
+
 app.post('/api/structures', (req, res) => {
   console.log('posting');
   const body = req.body;
