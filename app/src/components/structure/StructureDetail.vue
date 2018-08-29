@@ -1,7 +1,9 @@
 <template>
   <main>
-    <p>I'm a detail view!</p>
-    <p>name is {{ name }}</p>
+    <h2>Name: {{ name }}</h2>
+    <p>type: {{ type }}</p>
+    <p>ordered: {{ ordered }}</p>
+    <p>elements: {{ elements }}</p>
   </main>
 </template>
 
@@ -14,6 +16,9 @@ export default {
   data() {
     return {
       name: null,
+      type: null,
+      ordered: null,
+      elements: null
     };
   },
   created() {
@@ -26,7 +31,11 @@ export default {
 
       api.getStructure(this.$route.params.key)
         .then(response => {
+          this.key = response.key;
           this.name = response.name;
+          this.type = response.type;
+          this.ordered = response.ordered;
+          this.elements = response.elements;
           this.loading = false;
         })
         .catch(err => {
