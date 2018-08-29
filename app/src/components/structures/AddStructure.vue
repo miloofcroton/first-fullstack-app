@@ -6,6 +6,11 @@
         <div class="form-input">
           <input v-model="structure.name" placeholder="favorite tv shows" required>
         </div>
+
+        <p>Color:</p>
+        <div id='color-form' class="form-input">
+          <input v-model="structure.color" type="color" required>
+        </div>
         
         <p>Type:</p>
         <div class="form-input">
@@ -39,11 +44,6 @@
           <input type="checkbox" id="transitive" value="transitive" v-model="structure.properties">
           <label for="transitive">Transitive</label>
           <br>
-        </div>
-
-        <p>Color:</p>
-        <div id='color-form' class="form-input">
-          <input v-model="structure.color" type="color" placeholder="#0c8d53" required>
         </div>
 
       </div>
@@ -85,7 +85,7 @@ const initStructure = () => {
     ordered: '',
     elements: '',
     properties: [],
-    color: '#0c8d53',
+    color: '#41d6c3',
   };
 };
 

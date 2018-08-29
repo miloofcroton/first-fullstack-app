@@ -23,6 +23,7 @@ app.get('/api/structures', (req, res) => {
     SELECT
       id,
       name,
+      color,
       type,
       ordered,
       elements
@@ -39,6 +40,7 @@ app.get('/api/structures/:id', (req, res) => {
     SELECT
       id,
       name,
+      color,
       type,
       ordered,
       elements
@@ -58,11 +60,11 @@ app.post('/api/structures', (req, res) => {
   const body = req.body;
 
   client.query(`
-    INSERT INTO structures (name, type, ordered, elements)
-    VALUES ($1, $2, $3, $4)
+    INSERT INTO structures (name, color, type, ordered, elements)
+    VALUES ($1, $2, $3, $4, $5)
     RETURNING *;
   `,
-  [body.name, body.type, body.ordered, body.elements]
+  [body.name, body.color, body.type, body.ordered, body.elements]
   )
     .then(result => {
       res.send(result.rows[0]);

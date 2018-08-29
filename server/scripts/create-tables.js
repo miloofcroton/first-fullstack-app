@@ -13,6 +13,7 @@ client.connect()
       CREATE TABLE IF NOT EXISTS structures (
         id SERIAL PRIMARY KEY,
         name VARCHAR(256) NOT NULL,
+        color VARCHAR(256),
         type VARCHAR(256),
         ordered BOOLEAN,
         elements INTEGER
