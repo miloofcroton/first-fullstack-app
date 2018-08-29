@@ -1,58 +1,55 @@
-
+// express for serving, morgan for logging, cors for cors
 const express = require('express');
 const morgan = require('morgan');
 const cors = require('cors');
 
+// initialize all three, plus express.json for reading json body
 const app = express();
-
-app.use(express.json());
 app.use(morgan('dev'));
 app.use(cors());
+app.use(express.json());
+
+//connect to database
+const pg = require('pg');
+const Client = pg.Client;
+const databaseUrl = 'postgres://postgres:password@localhost:5432/mathology';
+const client = new Client(databaseUrl);
+client.connect();
 
 
-/* TEMP DATABASE SOLUTION */
-
-// temp solution to updating data...
-const fs = require('fs');
-// fs file paths are relative to pwd (cwd) aka where you started node
-// path to data file:
-const dataPath = 'data/structures.json';
-
-function readData() {
-  // convenient method for reading file.
-  // DON'T ever use in production
-  const raw = fs.readFileSync(dataPath);
-  // make into js array with neighborhood objects
-  const data = JSON.parse(raw);
-
-  return data;
-}
-
-/* ROUTES */
-
-// setup a "route":
-// 1) HTTP METHOD, i.e. app.get === for GET requests
-// 2) PATH, i.e. '/api/neighborhoods` === the requested path
+// routes
 app.get('/api/structures', (req, res) => {
-  const data = readData();
-  // send back the data:
-  res.send(data);
+  client.query(`
+    SELECT
+      id,
+      name,
+      type,
+      ordered,
+      elements
+    FROM structures;
+  `)
+    .then(result => {
+      res.send(result.rows);
+    })
+    .catch(err => console.log(err));
 });
 
-// app.<method>(<path>, handler)
 app.post('/api/structures', (req, res) => {
-  const data = readData();
-  data.push(req.body);
-  // save file
-  fs.writeFileSync(dataPath, JSON.stringify(data));
+  console.log('posting');
+  const body = req.body;
 
-  res.send(req.body);
+  client.query(`
+    INSERT INTO structures (name, type, ordered, elements)
+    VALUES ($1, $2, $3, $4)
+    RETURNING *;
+  `,
+  [body.name, body.type, body.ordered, body.elements]
+  )
+    .then(result => {
+      res.send(result.rows[0]);
+    })
+    .catch(err => console.log(err));
 });
-
-/* RUN THE SERVER */
-
-// set the PORT on which to listen
-const PORT = 3000;
 
 // start "listening" (run) the app (server)
-app.listen(PORT, () => console.log('app running...'));
+app.listen(3000, () => console.log('app running...'));
