@@ -3,7 +3,7 @@
     <img alt="Mathy" src="../../assets/logo.png">
     
     <div>
-      <h1>Math Structures R Fun</h1>
+      <h1>Mathology</h1>
       <nav>
         <router-link to="/">Home</router-link>
         <router-link to="/structures">Structures</router-link>
@@ -28,6 +28,8 @@ img {
 }
 
 a {
+  display: inline-block;
+  width: 140px;
   font-size: 24px;
   padding: 10px;
   margin: 15px;
@@ -36,38 +38,39 @@ a {
   color: white;
   border-radius: 5px;
   box-shadow: 0.5px 0.5px 0.5px black;
-  background-color: #00b061
-
+  background-color: rgba(65,214,195,0);
+  border: 4px solid #ffd90000;
 }
 
 a:hover {
-  background-color: #0c8d53;
-  box-shadow: 1.5px 1.5px 1.5px black;
-  transform: scale(1.5);
+  background-color: rgba(65,214,195,1);
+  box-shadow: 0.9px 0.9px 0.9px black;
+  border: 4px solid rgba(243, 221, 97, 0.582);
 }
 
 h1 {
-  font-family: 'Monoton', cursive;
+  font-family: 'Baloo Tammudu', cursive;
   font-size: 74px;
   font-weight: normal;
-  margin: 5px;
+  display: inline-block;
+  height: 100px;
+  margin: 5px 0px 0px 0px;
   text-transform: uppercase;
 }
 
 nav {
-  padding: 20px;
+  padding-bottom: 20px;
 }
 
 header {
   display: grid;
   grid-template-columns: 25% 50% 25%;
   box-shadow: 3px 2px 2px black;
+  background: rgb(90,170,250);
+}
 
-  background: #000000; /* Old browsers */
-  background: -moz-linear-gradient(left, #000000 0%, #00b061 40%); /* FF3.6-15 */
-  background: -webkit-linear-gradient(left, #000000 0%,#00b061 40%); /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(to right, #000000 0%,#00b061 40%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#00b061',GradientType=1 );
+header:hover {
+  background: rgba(65,214,195,1);
 }
 
 </style>

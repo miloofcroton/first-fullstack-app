@@ -65,16 +65,18 @@ h2 {
 
 .primary {
   display: grid;
-  grid-template-columns: 30% auto;
+  grid-template-columns: 40% auto;
 }
 
 ul.list {
-  margin: 0;
+  margin: 0px;
+  margin-right: 25px;
+
   padding: 0;
   list-style-type: none;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  grid-gap: 5px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-gap: 15px;
 }
 
 li {
