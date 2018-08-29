@@ -44,6 +44,14 @@ export default {
         this.structures = structures;
       });
   },
+  methods: {
+    handleAdd(structure) {
+      return api.addStructure(structure)
+        .then(saved => {
+          this.structures.push(saved);
+        });
+    }
+  }
 
 };
 </script>
