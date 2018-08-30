@@ -3,7 +3,7 @@
     @click="handleClick" 
     :style="{ backgroundColor: structure.color }"
   >
-      <h3>{{ structure.name }}</h3>
+      <h4>{{ structure.name }}</h4>
       <p>Type: {{ structure.type }}</p>
       <p>Ordered: {{ structure.ordered }}</p>
       <p>Number of Elements: {{ structure.elements }}</p>
@@ -30,6 +30,8 @@ export default {
 <style scoped>
 
 li {
+  width: 250px;
+  height: 250px;
   cursor: pointer;
   border: 1px solid black;
 }

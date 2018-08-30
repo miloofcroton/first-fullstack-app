@@ -3,6 +3,8 @@ First Fullstack App
 
 ## TODO
 
+### Get d3.js working as a model!
+
 ### Delete Functionality
 
 1. Add a delete button on the detail view
@@ -18,3 +20,11 @@ First Fullstack App
 all the right fields.
 1. Add new route to express that deletes the updates by id
 1. When the action is complete, programmatically navigate back to the detail view
+
+## Notes
+
+### Postgres access
+
+* su - postgres
+  * enter password for postgres user
+* psql

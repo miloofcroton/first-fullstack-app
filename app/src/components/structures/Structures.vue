@@ -5,7 +5,6 @@
     
     <div class="primary">
       <div class="add-structures">
-        <h3>Add a Structure</h3>
         <AddStructure :on-add="handleAdd"/> 
       </div>
       <div class="list-structures">
@@ -75,8 +74,7 @@ h2 {
 }
 
 ul.list {
-  margin: 0px;
-  margin-right: 25px;
+  margin: 0px 25px;
 
   padding: 0;
   list-style-type: none;
