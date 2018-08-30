@@ -72,5 +72,42 @@ app.post('/api/structures', (req, res) => {
     .catch(err => console.log(err));
 });
 
+app.put('/api/structures/:id', (req, res) => {
+  console.log('updating');
+  const body = req.body;
+
+  client.query(`
+    UPDATE structures 
+    SET (name=$2, color=$3, type=$4, ordered=$5, elements=$6)
+    WHERE id = $1
+    RETURNING *;
+  `,
+  [req.params.id, body.name, body.color, body.type, body.ordered, body.elements]
+  )
+    .then(result => {
+      res.send(result.rows[0]);
+    })
+    .catch(err => console.log(err));
+});
+
+app.delete('/api/structures/:id', (req, res) => {
+  console.log('deleting');
+
+  client.query(`
+    DELETE FROM structures 
+    WHERE id = $1
+    RETURNING *;
+  `,
+  [req.params.id]
+  )
+    .then(result => {
+      res.send(result.rows[0]);
+    })
+    .catch(err => console.log(err));
+});
+
+
+
+
 // start "listening" (run) the app (server)
 app.listen(3000, () => console.log('app running...'));
