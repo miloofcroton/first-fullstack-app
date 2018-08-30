@@ -1,17 +1,10 @@
-//postgres user info:
-// username = postgres, password = password
 
-const pg = require('pg');
-const Client = pg.Client;
-const databaseUrl = 'postgres://postgres:password@localhost:5432/mathology';
-const client = new Client(databaseUrl);
+const client = require('../db-client');
 
-client.connect()
-  .then(() => {
-    return client.query(`
-      DROP TABLE IF EXISTS structures;
-    `);
-  })
+client.query(`
+    DROP TABLE IF EXISTS elements;
+    DROP TABLE IF EXISTS structures;
+  `)
   .then(
     () => console.log('drop tables complete'),
     err => console.log(err)
