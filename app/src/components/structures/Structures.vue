@@ -74,8 +74,7 @@ h2 {
 }
 
 ul.list {
-  margin: 0px;
-  margin-right: 25px;
+  margin: 0px 25px;
 
   padding: 0;
   list-style-type: none;
