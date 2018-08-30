@@ -73,11 +73,16 @@ app.put('/api/structures/:id', (req, res) => {
 
   client.query(`
     UPDATE structures 
-    SET (name=$2, color=$3, type=$4, ordered=$5, elements=$6)
-    WHERE id = $1
+    SET 
+      name=$1, 
+      color=$2, 
+      type=$3, 
+      ordered=$4,
+      elements=$5
+    WHERE id = $6
     RETURNING *;
   `,
-  [req.params.id, body.name, body.color, body.type, body.ordered, body.elements]
+  [body.name, body.color, body.type, body.ordered, body.elements, req.params.id]
   )
     .then(result => {
       res.send(result.rows[0]);
@@ -90,13 +95,12 @@ app.delete('/api/structures/:id', (req, res) => {
 
   client.query(`
     DELETE FROM structures 
-    WHERE id = $1
-    RETURNING *;
+    WHERE id = $1;
   `,
   [req.params.id]
   )
-    .then(result => {
-      res.send(result.rows[0]);
+    .then(() => {
+      res.send({ removed: true });
     })
     .catch(err => console.log(err));
 });
@@ -104,5 +108,8 @@ app.delete('/api/structures/:id', (req, res) => {
 
 
 
+
+
 // start "listening" (run) the app (server)
-app.listen(3000, () => console.log('app running...'));
+const PORT = 3000;
+app.listen(PORT, () => console.log('app running on', PORT));
