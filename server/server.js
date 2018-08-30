@@ -9,13 +9,8 @@ app.use(morgan('dev'));
 app.use(cors());
 app.use(express.json());
 
-//connect to database
-const pg = require('pg');
-const Client = pg.Client;
-const databaseUrl = 'postgres://postgres:password@localhost:5432/mathology';
-const client = new Client(databaseUrl);
-client.connect();
-
+// connect to database
+const client = require('./db-client');
 
 // routes
 app.get('/api/structures', (req, res) => {
