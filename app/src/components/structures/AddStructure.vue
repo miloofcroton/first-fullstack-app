@@ -1,6 +1,7 @@
 <template>
   <section>
     <form @submit.prevent="handleSubmit">
+      <h3>Add a Structure</h3>
       <div class="form">
         <p>Name:</p>
         <div class="form-input">
@@ -71,7 +72,7 @@
     </form>
 
     <div class="selections">
-      <h4>You've selected:</h4>
+      <h3>You've selected:</h3>
       <div>
         <p class="col-1">Name:</p>
         <p class="col-2">{{ structure.name }}</p>
@@ -139,6 +140,13 @@ export default {
 
 <style scoped>
 
+form {
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid black;
+  box-shadow: 3px 1px 1px black;
+}
+
 div.form {
   width: 50%;
   margin: 10px auto;
@@ -154,11 +162,6 @@ div.form p {
 div.form .form-input {
   align-self: center;
   justify-self: start;
-}
-
-
-form {
-  padding: 20px;  
 }
 
 select {
@@ -183,6 +186,12 @@ button {
 
 button:hover {
   background: grey;
+}
+
+.selections {
+  border-radius: 8px;
+  border: 1px solid black;
+  box-shadow: 3px 1px 1px black;
 }
 
 .selections div {

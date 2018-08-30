@@ -5,7 +5,6 @@
     
     <div class="primary">
       <div class="add-structures">
-        <h3>Add a Structure</h3>
         <AddStructure :on-add="handleAdd"/> 
       </div>
       <div class="list-structures">
