@@ -14,8 +14,14 @@
         
         <p>Type:</p>
         <div class="form-input">
-          <select v-model="structure.type" required>
+          
+          <select
+            v-model="structure.type"
+            @change="handleSingleton"
+            required
+          >
             <option disabled value="">Please select one</option>
+            <option value="singleton">Singleton</option>
             <option value="set">Set</option>
             <option value="vector space">Vector Space</option>
             <option value="graph">Graph</option>
@@ -32,7 +38,19 @@
 
         <p>Number of Elements:</p>
         <div class="form-input">
-          <input v-model="structure.elements" type="number" placeholder="4" required>
+          <input
+            v-if="structure.type === 'singleton'"
+            v-model="structure.elements" 
+            type="number"
+            disabled
+          >
+          <input
+            v-else
+            v-model="structure.elements" 
+            type="number" 
+            placeholder="4" 
+            required
+          >
         </div>
 
         <p>Properties:</p>
@@ -107,6 +125,11 @@ export default {
         .then(() => {
           this.structure = initStructure();
         });
+    },
+    handleSingleton() {
+      if(this.structure.type === 'singleton'){
+        this.structure.elements = 1;
+      }
     }
   }
 
