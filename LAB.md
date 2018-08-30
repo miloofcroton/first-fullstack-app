@@ -3,17 +3,6 @@ First Fullstack App
 
 ## TODO
 
-### Detail View
-
-1. Add a new route at `/<items>/:id` that loads a detail view of your resource
-    1. Create the detail view component
-    1. In the `created` lifecycle hook, fetch the data
-1. Add a new service api call that takes and id and fetches the requested resource from the server
-1. Add a GET route on the server that returns the requested id from the database.
-    1. Use `req.params.id` to get to the id
-
-## Bonus Stretch Goals!
-
 ### Delete Functionality
 
 1. Add a delete button on the detail view
