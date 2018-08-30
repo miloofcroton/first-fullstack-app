@@ -85,10 +85,5 @@ ul.list {
   grid-gap: 15px;
 }
 
-li {
-  border: 1px solid black;
-  
-}
-
 
 </style>

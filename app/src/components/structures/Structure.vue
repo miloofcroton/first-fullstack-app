@@ -31,6 +31,7 @@ export default {
 
 li {
   cursor: pointer;
+  border: 1px solid black;
 }
 
 </style>
