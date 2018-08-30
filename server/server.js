@@ -108,8 +108,6 @@ app.delete('/api/structures/:id', (req, res) => {
 
 
 
-
-
 // start "listening" (run) the app (server)
 const PORT = 3000;
 app.listen(PORT, () => console.log('app running on', PORT));

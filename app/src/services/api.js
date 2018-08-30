@@ -1,27 +1,30 @@
+const URL = 'http://localhost:3000/api';
+const STRUCTURES_URL = `${URL}/structures`;
+const ELEMENTS_URL = `${URL}/elements`;
+
 
 export default {
   getStructures() {
-    return fetch('http://localhost:3000/api/structures', {
+    return fetch(STRUCTURES_URL, {
       headers: { 'Content-Type': 'application/json' }
     })
       .then(response => response.json());
   },
   getStructure(id) {
-    return fetch(`http://localhost:3000/api/structures/${id}`, {
-      headers: { 'Content-Type': 'application/json' }
-    })
+    return fetch(`${STRUCTURES_URL}/${id}`)
       .then(response => response.json());
   },
   addStructure(structure) {
-    return fetch('http://localhost:3000/api/structures', {
+    return fetch(STRUCTURES_URL, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(structure)
     })
       .then(response => response.json());
   },
-  updateStructure(structure, id) {
-    return fetch(`http://localhost:3000/api/structure/${id}`, {
+
+  updateStructure(structure) {
+    return fetch(`${STRUCTURES_URL}/${structure.id}`, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(structure)
@@ -29,11 +32,19 @@ export default {
       .then(response => response.json());
   },
   deleteStructure(id) {
-    return fetch(`http://localhost:3000/api/structures/${id}`, {
+    return fetch(`${STRUCTURES_URL}/${id}`, {
       method: 'DELETE',
-      headers: { 'Content-Type': 'application/json' },
+    })
+      .then(response => response.json());
+  },
+
+
+  getElements() {
+    return fetch(ELEMENTS_URL, {
+      headers: { 'Content-Type': 'application/json' }
     })
       .then(response => response.json());
   }
+
 };
 
