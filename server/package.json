@@ -7,10 +7,13 @@
     "create-tables": "node scripts/create-tables.js",
     "drop-tables": "node scripts/drop-tables.js",
     "recreate-tables": "npm run drop-tables && npm run create-tables",
-    "lint": "eslint .",
-    "pretest": "npm run lint",
-    "test": "exit 0",
-    "start": "nodemon server.js"
+    "seed-elements": "node scripts/seed-elements.js",
+    "seed-structures": "node scripts/seed-structures.js",
+    "seed-data": "npm run seed-structures && npm run seed-elements",
+    "db-load-all": "npm run recreate-tables && npm run seed-data",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start:watch": "nodemon server.js",
+    "start": "node server.js"
   },
   "author": "Jack Toumey <jack@toumey.io>",
   "license": "ISC",

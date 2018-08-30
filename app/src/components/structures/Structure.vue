@@ -34,6 +34,7 @@ li {
   height: 250px;
   cursor: pointer;
   border: 1px solid black;
+  justify-self: center;
 }
 
 </style>

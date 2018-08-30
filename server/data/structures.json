@@ -1,6 +1,7 @@
 [
   {
     "name": "dog",
+    "color": "red",
     "type": "set",
     "ordered": false,
     "elements": 5,
@@ -9,6 +10,7 @@
   },
   {
     "name": "cat",
+    "color": "blue",
     "type": "vector space",
     "ordered": false,
     "elements": 4,
@@ -17,6 +19,7 @@
   },
   {
     "name": "social network",
+    "color": "green",
     "type": "graph",
     "ordered": false,
     "elements": 6,
