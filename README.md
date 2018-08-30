@@ -3,6 +3,8 @@ First Fullstack App
 
 ## TODO
 
+### Get d3.js working as a model!
+
 ### Delete Functionality
 
 1. Add a delete button on the detail view
