@@ -7,11 +7,6 @@ First Fullstack App
 
 ### The UD of CRUD
 
-Check work in:
-
-* api.js
-* server.js
-
 View:
 
 * Add a delete button on the detail view
@@ -21,9 +16,9 @@ View:
   * Create a new component that either has a more extensive update form, or reuse the add form if it has
 all the right fields.
 
+### Add features for elements (or think of better use of second table)
 
 ### Add JOINS
-
 
 1. Add a JOIN to your `GET` list select
     * Keep the detail view get as just the id
