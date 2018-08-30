@@ -7,6 +7,7 @@
     "create-tables": "node scripts/create-tables.js",
     "drop-tables": "node scripts/drop-tables.js",
     "recreate-tables": "npm run drop-tables && npm run create-tables",
+    "seed-tables": "node scripts/seed-tables.js",
     "lint": "eslint .",
     "pretest": "npm run lint",
     "test": "exit 0",
