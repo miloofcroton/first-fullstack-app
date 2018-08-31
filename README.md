@@ -3,7 +3,6 @@ First Fullstack App
 
 ## TODO
 
-### DB seed functionality
 
 ### The UD of CRUD
 
