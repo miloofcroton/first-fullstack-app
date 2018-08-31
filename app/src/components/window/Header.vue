@@ -56,6 +56,8 @@ h1 {
   height: 100px;
   margin: 5px 0px 0px 0px;
   text-transform: uppercase;
+  color: white;
+  text-shadow: 2px 2px black;
 }
 
 nav {
