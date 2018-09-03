@@ -6,17 +6,17 @@ Promise.all(
   cities.map(city => {
     return client.query(`
       INSERT into cities (
-        node_1, node_2, node_1_id, node_2_id, name, color, directed
+        state_id, name, population, landlocked
       )
       SELECT
-
-        id as parent_id,
+        id as state_id,
         $1 as name,
-        $2 as color
-      FROM nodes
-      WHERE node_1 = $1 AND node_2 = $2;
+        $2 as population,
+        $3 as landocked
+      FROM states
+      WHERE abbrev = $4;
     `,
-    [city.name, city.color, city.parent]
+    [city.name, city.population, city.landlocked, city.state]
     );
   })
 )

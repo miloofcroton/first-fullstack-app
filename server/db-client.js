@@ -1,7 +1,7 @@
 
 // postgres user info:
 // username = postgres, password = password
-const DATABASE_URL = 'postgres://postgres:password@localhost:5432/mathology';
+const DATABASE_URL = 'postgres://postgres:password@localhost:5432/worldly';
 const pg = require('pg');
 const Client = pg.Client;
 

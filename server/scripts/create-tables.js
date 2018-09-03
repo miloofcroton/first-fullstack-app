@@ -1,21 +1,22 @@
 const client = require('../db-client');
 
 client.query(`
-    CREATE TABLE IF NOT EXISTS nodes (
+    CREATE TABLE IF NOT EXISTS states (
       id SERIAL PRIMARY KEY,
       name VARCHAR(256) NOT NULL UNIQUE,
-      color VARCHAR(256),
-      elements INTEGER
+      abbrev VARCHAR(256) NOT NULL UNIQUE,
+      motto VARCHAR(256),
+      capitol VARCHAR(256),
+      demonym VARCHAR(256),
+      governor VARCHAR(256),
+      landlocked BOOLEAN
     );
-    CREATE TABLE IF NOT EXISTS edges (
+    CREATE TABLE IF NOT EXISTS cities (
       id SERIAL PRIMARY KEY,
       name VARCHAR(256),
-      color VARCHAR(256),
-      node_1 VARCHAR(256) NOT NULL REFERENCES nodes(name),
-      node_2 VARCHAR(256) NOT NULL REFERENCES nodes(name),
-      node_1_id INTEGER NOT NULL REFERENCES nodes(id),
-      node_2_id INTEGER NOT NULL REFERENCES nodes(id),
-      directed BOOLEAN
+      population INTEGER,
+      landlocked BOOLEAN,
+      state_id INTEGER NOT NULL REFERENCES states(id)
     );
   `)
   .then(

@@ -5,10 +5,10 @@ const states = require('../data/states.json');
 Promise.all(
   states.map(state => {
     return client.query(`
-      INSERT into states (name, color, elements)
-      Values ($1, $2, $3);
+      INSERT into states (name, abbrev, motto, capitol, demonym, governor, landlocked)
+      Values ($1, $2, $3, $4, $5, $6, $7);
     `,
-    [state.name, state.color, state.elements]
+    [state.name, state.abbrev, state.motto, state.capitol, state.demonym, state.governor, state.landlocked]
     );
   })
 )
