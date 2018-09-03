@@ -1,46 +1,46 @@
 const URL = 'http://localhost:3000/api';
-const STRUCTURES_URL = `${URL}/structures`;
-const ELEMENTS_URL = `${URL}/elements`;
+const CITIES_URL = `${URL}/cities`;
+const STATES_URL = `${URL}/states`;
 
 
 export default {
-  getStructures() {
-    return fetch(STRUCTURES_URL, {
+  getCities() {
+    return fetch(CITIES_URL, {
       headers: { 'Content-Type': 'application/json' }
     })
       .then(response => response.json());
   },
-  getStructure(id) {
-    return fetch(`${STRUCTURES_URL}/${id}`)
+  getCity(id) {
+    return fetch(`${CITIES_URL}/${id}`)
       .then(response => response.json());
   },
-  addStructure(structure) {
-    return fetch(STRUCTURES_URL, {
+  addCity(city) {
+    return fetch(CITIES_URL, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(structure)
+      body: JSON.stringify(city)
     })
       .then(response => response.json());
   },
 
-  updateStructure(structure) {
-    return fetch(`${STRUCTURES_URL}/${structure.id}`, {
+  updateCity(city) {
+    return fetch(`${CITIES_URL}/${city.id}`, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(structure)
+      body: JSON.stringify(city)
     })
       .then(response => response.json());
   },
-  deleteStructure(id) {
-    return fetch(`${STRUCTURES_URL}/${id}`, {
+  deleteCity(id) {
+    return fetch(`${CITIES_URL}/${id}`, {
       method: 'DELETE',
     })
       .then(response => response.json());
   },
 
 
-  getElements() {
-    return fetch(ELEMENTS_URL, {
+  getStates() {
+    return fetch(STATES_URL, {
       headers: { 'Content-Type': 'application/json' }
     })
       .then(response => response.json());
