@@ -11,6 +11,7 @@
     "seed-cities": "node scripts/seed-cities.js",
     "seed-data": "npm run seed-states && npm run seed-cities",
     "db-load-all": "npm run recreate-tables && npm run seed-data",
+    "lint": "eslint .",
     "pretest": "npm run lint",
     "test": "exit 0",
     "start:watch": "nodemon server.js",
