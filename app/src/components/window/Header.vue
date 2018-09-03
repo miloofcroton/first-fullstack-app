@@ -1,12 +1,12 @@
 <template>
     <header>
-    <img alt="Mathy" src="../../assets/logo.png">
+    <img alt="Globe" src="../../assets/logo.png">
     
     <div>
-      <h1>Mathology</h1>
+      <h1>Wordly</h1>
       <nav>
         <router-link to="/">Home</router-link>
-        <router-link to="/structures">Structures</router-link>
+        <router-link to="/Cities">Cities</router-link>
       </nav>
     </div>
 
