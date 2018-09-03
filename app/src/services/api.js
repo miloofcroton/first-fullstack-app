@@ -31,7 +31,7 @@ export default {
     })
       .then(response => response.json());
   },
-  deleteCity(id) {
+  removeCity(id) {
     return fetch(`${CITIES_URL}/${id}`, {
       method: 'DELETE',
     })

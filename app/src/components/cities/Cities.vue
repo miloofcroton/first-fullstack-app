@@ -1,63 +1,37 @@
 <template>
-  <main>
-    
-    <h2>Math Structures</h2>
-    
-    <div class="primary">
-      <div class="add-structures">
-        <AddStructure :on-add="handleAdd"/> 
-      </div>
-      <div class="list-structures">
-        <h3>Structure List</h3>
-        <p v-if="!structures">Loading structures...</p>
-        <ul v-else class="list">
-          <Structure
-            v-for="(structure, index) in structures"
-            :key="index"
-            :structure="structure"
-            :selected="selected"
-            :onSelect="handleSelect"
-          />
-        </ul>
-      </div>
-    </div>
-
-  </main>
+  <section>
+    <h2>What a sight these cities are to see</h2>
+    <p v-if="!cities">Loading cities...</p>
+    <ul v-else class="list">
+      <li
+        v-for="city in cities"
+        :key="city.id">
+        <router-link :to="`/cities/${city.id}`">
+          {{city.name}}, {{city.state}}
+        </router-link>
+      </li>
+    </ul>
+    <p>
+      <router-link to="/cities/add">Add a new city</router-link>
+    </p>
+  </section>
 </template>
 
 <script>
-import City from './City';
-import AddCity from './AddCity.vue';
 import api from '../../services/api';
 
 export default {
-  components: {
-    City, AddCity
-  },
   data() {
     return {
-      structures: null,
-      selected: null
+      cities: null,
     };
   },
   created() {
-    api.getStructures()
-      .then(structures => {
-        this.structures = structures;
+    api.getCities()
+      .then(cities => {
+        this.cities = cities;
       });
-  },
-  methods: {
-    handleSelect(structure) {
-      this.selected = structure;
-    },
-    handleAdd(structure) {
-      return api.addStructure(structure)
-        .then(saved => {
-          this.structures.push(saved);
-        });
-    }
   }
-
 };
 </script>
 

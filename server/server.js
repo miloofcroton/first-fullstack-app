@@ -19,7 +19,7 @@ app.get('/api/cities', (req, res) => {
       c.id,
       c.name,
       s.id as "stateId",
-      s.name as state,
+      s.name as state
     FROM cities as c
     JOIN states as s
     ON c.state_id = s.id
@@ -36,7 +36,7 @@ app.get('/api/cities/:id', (req, res) => {
     SELECT
       id,
       name,
-      state_id as stateId,
+      state_id as "stateId",
       population,
       landlocked
     FROM cities
@@ -77,7 +77,7 @@ app.put('/api/cities/:id', (req, res) => {
       name=$1, 
       state_id=$2, 
       population=$3, 
-      landlocked=$4,
+      landlocked=$4
     WHERE id = $5
     RETURNING *;
   `,
