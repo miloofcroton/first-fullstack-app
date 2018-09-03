@@ -13,16 +13,17 @@ app.use(express.json());
 const client = require('./db-client');
 
 // routes
-app.get('/api/structures', (req, res) => {
+app.get('/api/cities', (req, res) => {
   client.query(`
     SELECT
-      id,
-      name,
-      color,
-      type,
-      ordered,
-      elements
-    FROM structures;
+      c.id,
+      c.name,
+      s.id as "stateId",
+      s.name as state,
+    FROM cities as c
+    JOIN states as s
+    ON c.state_id = s.id
+    ORDER BY c.name;
   `)
     .then(result => {
       res.send(result.rows);
@@ -30,16 +31,15 @@ app.get('/api/structures', (req, res) => {
     .catch(err => console.log(err));
 });
 
-app.get('/api/structures/:id', (req, res) => {
+app.get('/api/cities/:id', (req, res) => {
   client.query(`
     SELECT
       id,
       name,
-      color,
-      type,
-      ordered,
-      elements
-    FROM structures
+      state_id as stateId,
+      population,
+      landlocked
+    FROM cities
     WHERE id = $1;
   `,
   [req.params.id]
@@ -50,16 +50,16 @@ app.get('/api/structures/:id', (req, res) => {
     .catch(err => console.log(err));
 });
 
-app.post('/api/structures', (req, res) => {
+app.post('/api/cities', (req, res) => {
   console.log('posting');
   const body = req.body;
 
   client.query(`
-    INSERT INTO structures (name, color, type, ordered, elements)
-    VALUES ($1, $2, $3, $4, $5)
+    INSERT INTO cities (name, state_id, population, landlocked)
+    VALUES ($1, $2, $3, $4)
     RETURNING *;
   `,
-  [body.name, body.color, body.type, body.ordered, body.elements]
+  [body.name, body.stateId, body.population, body.landlocked]
   )
     .then(result => {
       res.send(result.rows[0]);
@@ -67,22 +67,21 @@ app.post('/api/structures', (req, res) => {
     .catch(err => console.log(err));
 });
 
-app.put('/api/structures/:id', (req, res) => {
+app.put('/api/cities/:id', (req, res) => {
   console.log('updating');
   const body = req.body;
 
   client.query(`
-    UPDATE structures 
+    UPDATE cities 
     SET 
       name=$1, 
-      color=$2, 
-      type=$3, 
-      ordered=$4,
-      elements=$5
-    WHERE id = $6
+      state_id=$2, 
+      population=$3, 
+      landlocked=$4,
+    WHERE id = $5
     RETURNING *;
   `,
-  [body.name, body.color, body.type, body.ordered, body.elements, req.params.id]
+  [body.name, body.stateId, body.population, body.landlocked, req.params.id]
   )
     .then(result => {
       res.send(result.rows[0]);
@@ -90,11 +89,11 @@ app.put('/api/structures/:id', (req, res) => {
     .catch(err => console.log(err));
 });
 
-app.delete('/api/structures/:id', (req, res) => {
+app.delete('/api/cities/:id', (req, res) => {
   console.log('deleting');
 
   client.query(`
-    DELETE FROM structures 
+    DELETE FROM cities 
     WHERE id = $1;
   `,
   [req.params.id]
@@ -105,6 +104,15 @@ app.delete('/api/structures/:id', (req, res) => {
     .catch(err => console.log(err));
 });
 
+app.get('/api/states', (req, res) => {
+  client.query(`
+    SELECT *
+    FROM states;
+  `)
+    .then(result => {
+      res.send(result.rows);
+    });
+});
 
 
 

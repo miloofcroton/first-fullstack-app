@@ -38,7 +38,6 @@ export default {
       .then(response => response.json());
   },
 
-
   getStates() {
     return fetch(STATES_URL, {
       headers: { 'Content-Type': 'application/json' }
