@@ -1,17 +1,17 @@
 import VueRouter from 'vue-router';
 import Home from './components/home/Home.vue';
-import Structures from './components/structures/Structures.vue';
-import StructureDetail from './components/structure/StructureDetail.vue';
+import Cities from './components/cities/Cities.vue';
+import CityDetail from './components/city/CityDetail.vue';
 
 export default new VueRouter({
   routes: [
     { path: '/', 
       component: Home },
-    { path: '/structures', 
-      component: Structures },
+    { path: '/cities', 
+      component: Cities },
     {
-      path: '/structure/:key',
-      component: StructureDetail,
+      path: '/city/:key',
+      component: CityDetail,
     },
     { path: '*', 
       redirect: '/' },

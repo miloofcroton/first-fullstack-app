@@ -26,13 +26,13 @@
 </template>
 
 <script>
-import Structure from './Structure';
-import AddStructure from './AddStructure.vue';
+import City from './City';
+import AddCity from './AddCity.vue';
 import api from '../../services/api';
 
 export default {
   components: {
-    Structure, AddStructure
+    City, AddCity
   },
   data() {
     return {
