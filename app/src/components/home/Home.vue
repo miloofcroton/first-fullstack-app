@@ -1,21 +1,14 @@
 <template>
   <main>
-    <h2>Do you believe in math?</h2>
-    <p class="center">
-      A = math <br>
-      B = magic <br>
-      You believe in magic <br>
-      All math is magic <br>
-      You believe in magic <br>
+    <h2>How worldly are you?</h2>
+    <p>
+      Modern adventure darn, traveler traveling cute blogger traveler traveler adventure. Darn colorful modern organized Travel design darn, wanderlust design modern Travel design colorful organized. Excursion organized darn travelblogger colorful WordPress webdesign travelblogger organized. WordPress adventure design webdesign webdesign expedition pretty. Modern wanderlust darn excursion colorful, cute WordPress fun traveling excursion. Theme design website adventure modern colorful traveler. Wanderlust fun Travel webdesign excursion webdesign theme, whimsical website organized organized. Design adventure whimsical traveler colorful traveler colorful clean. Darn traveling website traveling travelblogger darn whimsical theme design.
     </p>
     <p>
-      Math is a funny thing. I think many people tend to see it as magic and never attempt to demystify it, even those who use math on a daily basis. My aim is to do exactly that. Let's take a harder look at the real cause and effect that makes up, well, cause and effect. (Arguing for particular math foundations quickly becomes a recursive one, as you can see).
-    </p>
-    <p>
-      This app is designed to allow you to play around with real math structures and see what happens when they combine to form larger structures. What might you stumble upon?
+      Website clean darn WordPress WordPress blogger clean traveler. Expedition webdesign darn blogger, wanderlust traveling travelblogger travelblogger expedition simple fun webdesign. Travelblogger travelblogger design clean Travel expedition travelblogger website excursion. Cute design travelblogger Travel whimsical, expedition expedition design wanderlust colorful fun expedition website Travel. Organized webdesign traveler modern Travel design adventure. Cute travelblogger colorful adventure theme website webdesign excursion, excursion fun excursion whimsical theme adventure. Modern expedition design colorful expedition blogger design. Expedition design blogger darn theme Travel theme pretty. Fun wanderlust wanderlust theme pretty, organized design expedition whimsical organized expedition adventure cute.
     </p>
     <p class="center">
-      Abracadabra...
+      I can show you the world...
     </p>
   </main>
 </template>
